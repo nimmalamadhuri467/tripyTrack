@@ -1,0 +1,109 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+  <div class="container mt-4">
+    <h3 class="text-center mb-4">Edit Your Listing</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" 
+          novalidate 
+          class="needs-validation w-100" 
+          style="max-width: 500px; margin: auto;">
+
+      <!-- Title -->
+      <div class="mb-3">
+        <label for="title" class="form-label fw-bold">Title</label>
+        <input
+          id="title"
+          name="listing[title]"
+          value="<%= listing.title %>"
+          type="text"
+          class="form-control"
+          required>
+        <div class="invalid-feedback">
+          Please enter a title
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label fw-bold">Description</label>
+        <textarea
+          id="description"
+          name="listing[description]"
+          class="form-control"
+          required
+          rows="4"><%= listing.description %></textarea>
+        <div class="invalid-feedback">
+          Please enter a short description
+        </div>
+      </div>
+
+      <!-- Image Link -->
+      <div class="mb-3">
+        <label for="image" class="form-label fw-bold">Image Link</label>
+        <input
+          id="image"
+          name="listing[image]"
+          value="<%= listing.image %>"
+          type="text"
+          class="form-control"
+          required>
+        <div class="invalid-feedback">
+          Please enter an image link
+        </div>
+      </div>
+
+      <!-- Price & Country -->
+      <div class="row mb-3">
+        <div class="col">
+          <label for="price" class="form-label fw-bold">Price</label>
+          <input
+            id="price"
+            name="listing[price]"
+            value="<%= listing.price %>"
+            type="number"
+            class="form-control"
+            required>
+          <div class="invalid-feedback">
+            Please enter a valid price
+          </div>
+        </div>
+        <div class="col">
+          <label for="country" class="form-label fw-bold">Country</label>
+          <input
+            id="country"
+            name="listing[country]"
+            value="<%= listing.country %>"
+            type="text"
+            class="form-control"
+            required>
+          <div class="invalid-feedback">
+            Please enter a country
+          </div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="mb-4">
+        <label for="location" class="form-label fw-bold">Location</label>
+        <input
+          id="location"
+          name="listing[location]"
+          value="<%= listing.location %>"
+          type="text"
+          class="form-control"
+          required>
+        <div class="invalid-feedback">
+          Please enter a location
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="d-flex justify-content-start">
+        <button class="btn btn-danger px-4">Edit</button>
+      </div>
+
+    </form>
+  </div>
+
+  <script src="/js/script.js"></script>
+ 
+</body>
